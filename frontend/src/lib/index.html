@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coding Kashtalu - Top 50 Questions to Crack Infosys SP & DSE</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap');
+
+  :root {
+    --bg: #0a0a0f;
+    --card: #111118;
+    --border: #1e1e2e;
+    --accent: #00e5ff;
+    --green: #00ff88;
+    --yellow: #ffd600;
+    --red: #ff4d6d;
+    --orange: #ff9500;
+    --text: #e0e0f0;
+    --muted: #6b6b8a;
+    --easy: #00ff88;
+    --medium: #ffd600;
+    --hard: #ff4d6d;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  a{
+    color: white !important;
+  }
+
+  /* Grid background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container { max-width: 960px; margin: 0 auto; padding: 40px 20px; position: relative; z-index: 1; }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+    padding: 48px 32px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(0,229,255,0.05), rgba(0,255,136,0.03));
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(0,229,255,0.12), transparent 70%);
+    pointer-events: none;
+  }
+  .tag {
+    display: inline-block;
+    background: rgba(0,229,255,0.1);
+    border: 1px solid rgba(0,229,255,0.3);
+    color: var(--accent);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  h1 {
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #fff 30%, var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 500px;
+    margin: 0 auto 28px;
+    line-height: 1.6;
+  }
+
+  /* Stats bar */
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .stat {
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 24px;
+    font-weight: 700;
+    display: block;
+  }
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Format banner */
+  .format-banner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .format-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    background: var(--card);
+    position: relative;
+    overflow: hidden;
+  }
+  .format-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .format-card.easy::before { background: var(--easy); }
+  .format-card.medium::before { background: var(--medium); }
+  .format-card.hard::before { background: var(--hard); }
+  .format-card .marks {
+    font-family: 'Space Mono', monospace;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .format-card.easy .marks { color: var(--easy); }
+  .format-card.medium .marks { color: var(--medium); }
+  .format-card.hard .marks { color: var(--hard); }
+  .format-card .level { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+  .format-card .topic { font-size: 12px; font-weight: 600; letter-spacing: 1px; }
+
+  /* Section */
+  .section { margin-bottom: 48px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .section-count {
+    margin-left: auto;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* Question card */
+  .q-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+    background: var(--card);
+    display: grid;
+    grid-template-columns: 40px 1fr auto;
+    gap: 16px;
+    align-items: start;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: default;
+  }
+  .q-card:hover {
+    border-color: rgba(0,229,255,0.2);
+    transform: translateX(4px);
+  }
+  .q-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: var(--muted);
+    padding-top: 2px;
+  }
+  .q-content { }
+  .q-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .q-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .q-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .tag-pill {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 100px;
+    border: 1px solid;
+  }
+  .tag-pill.topic { border-color: rgba(0,229,255,0.3); color: var(--accent); background: rgba(0,229,255,0.06); }
+  .tag-pill.freq-high { border-color: rgba(0,255,136,0.3); color: var(--green); background: rgba(0,255,136,0.06); }
+  .tag-pill.freq-med { border-color: rgba(255,214,0,0.3); color: var(--yellow); background: rgba(255,214,0,0.06); }
+  .q-badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    letter-spacing: 1px;
+  }
+  .badge-easy { background: rgba(0,255,136,0.1); color: var(--easy); border: 1px solid rgba(0,255,136,0.2); }
+  .badge-medium { background: rgba(255,214,0,0.1); color: var(--yellow); border: 1px solid rgba(255,214,0,0.2); }
+  .badge-hard { background: rgba(255,77,109,0.1); color: var(--hard); border: 1px solid rgba(255,77,109,0.2); }
+
+  /* Tip box */
+  .tip-box {
+    border: 1px solid rgba(0,229,255,0.2);
+    border-radius: 12px;
+    padding: 20px 24px;
+    background: rgba(0,229,255,0.04);
+    margin-bottom: 40px;
+  }
+  .tip-box h3 {
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+    font-family: 'Space Mono', monospace;
+  }
+  .tip-box ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .tip-box li {
+    font-size: 14px;
+    color: var(--muted);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .tip-box li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    border-top: 1px solid var(--border);
+    padding-top: 32px;
+    margin-top: 16px;
+  }
+  .footer p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .footer strong { color: var(--accent); }
+
+  @media (max-width: 600px) {
+    .format-banner { grid-template-columns: 1fr; }
+    .q-card { grid-template-columns: 32px 1fr; }
+    .q-badge { display: none; }
+    .stats { gap: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="tag">🔥 Curated Sheet 2025</div>
+    <h1>Top 50 Questions to Crack<br>Infosys SP & DSE</h1>
+    <p class="subtitle">Handpicked from real exam experiences, GitHub repos, PrepInsta, Reddit & HackWithInfy rounds. Ranked by frequency & importance.</p>
+    <p class="subtitle">Made with ❤️ for Infosys SP & DSE aspirants by <a href="https://www.instagram.com/codingkashtalu" target="_blank">Coding Kashtalu</a></p>
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-num" style="color:var(--green)">17</span>
+        <span class="stat-label">Easy</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" style="color:var(--yellow)">18</span>
+        <span class="stat-label">Medium</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" style="color:var(--red)">15</span>
+        <span class="stat-label">Hard</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" style="color:var(--accent)">3 hrs</span>
+        <span class="stat-label">Exam Duration</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Format Info -->
+  <div class="format-banner">
+    <div class="format-card easy">
+      <div class="marks">20</div>
+      <div class="level">Question 1 · Easy</div>
+      <div class="topic">Arrays / Strings / Basic DS</div>
+    </div>
+    <div class="format-card medium">
+      <div class="marks">30</div>
+      <div class="level">Question 2 · Medium</div>
+      <div class="topic">Greedy / Recursion</div>
+    </div>
+    <div class="format-card hard">
+      <div class="marks">50</div>
+      <div class="level">Question 3 · Hard</div>
+      <div class="topic">Dynamic Programming / Graphs</div>
+    </div>
+  </div>
+
+  <!-- Tip Box -->
+  <div class="tip-box">
+    <h3>⚡ Exam Strategy</h3>
+    <ul>
+      <li>Always solve Q1 first fully — 20 marks is guaranteed if you're prepared</li>
+      <li>Partial scoring exists — even 60% test cases passing gives you marks on Q3</li>
+      <li>Python is fastest for string/array problems — fewer lines, less bugs</li>
+      <li>Output format matters — extra spaces or wrong newlines = wrong answer</li>
+      <li>Read all 3 questions first, then allocate time — don't get stuck on Q3 early</li>
+      <li>Follow <a href="https://www.instagram.com/codingkashtalu" target="_blank">Coding Kashtalu on Instagram</a> for more tips!</li>
+    </ul>
+  </div>
+
+  <!-- EASY SECTION -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-dot" style="background:var(--easy);box-shadow:0 0 8px var(--easy)"></div>
+      <div class="section-title" style="color:var(--easy)">EASY — Arrays, Strings & Basic DS</div>
+      <div class="section-count">Q1–Q17</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">01</div>
+      <div class="q-content">
+        <div class="q-title">Reverse a String / Array</div>
+        <div class="q-desc">Reverse elements in-place or return reversed version. Covers two-pointer technique.</div>
+        <div class="q-tags"><span class="tag-pill topic">Arrays</span><span class="tag-pill freq-high">🔥 Very High Freq</span></div>
+      </div>
+      <div class="q-badge badge-easy">EASY</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">02</div>
+      <div class="q-content">
+        <div class="q-title">Check Palindrome (String & Number)</div>
+        <div class="q-desc">Check if a string or number reads the same forwards and backwards.</div>
+        <div class="q-tags"><span class="tag-pill topic">Strings</span><span class="tag-pill freq-high">🔥 Very High Freq</span></div>
+      </div>
+      <div class="q-badge badge-easy">EASY</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">03</div>
+      <div class="q-content">
+        <div class="q-title">Find Maximum & Minimum in Array</div>
+        <div class="q-desc">Single pass traversal. Sometimes asked with constraints like no built-in functions.</div>
+        <div class="q-tags"><span class="tag-pill topic">Arrays</span><span class="tag-pill freq-high">🔥 Very High Freq</span></div>
+      </div>
+      <div class="q-badge badge-easy">EASY</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">04</div>
+      <div class="q-content">
+        <div class="q-title">Count Frequency of Each Element</div>
+        <div class="q-desc">Use HashMap/Dictionary to count occurrences. Find most/least frequent element.</div>
+        <div class="q-tags"><span class="tag-pill topic">HashMap</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-easy">EASY</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">05</div>
+      <div class="q-content">
+        <div class="q-title">Anagram Check</div>
+        <div class="q-desc">Check if two strings are anagrams. Use sorted() or character frequency map.</div>
+        <div class="q-tags"><span class="tag-pill topic">Strings</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-easy">EASY</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">06</div>
+      <div class="q-content">
+        <div class="q-title">Remove Duplicates from Array</div>
+        <div class="q-desc">Remove duplicate elements and return unique elements. HashSet approach or two-pointer on sorted array.</div>
+        <div class="q-tags"><span class="tag-pill topic">Arrays</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-easy">EASY</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">07</div>
+      <div class="q-content">
+        <div class="q-title">Sum of Digits / Digit Sum Recursion</div>
+        <div class="q-desc">Find sum of digits of a number. Recursively reduce until single digit (digital root).</div>
+        <div class="q-tags"><span class="tag-pill topic">Math</span><span class="tag-pill freq-med">Medium Freq</span></div>
+      </div>
+      <div class="q-badge badge-easy">EASY</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">08</div>
+      <div class="q-content">
+        <div class="q-title">Difference Between Odd & Even Index Elements</div>
+        <div class="q-desc">Classic Infosys question — sum elements at odd indices, subtract sum at even indices (or vice versa).</div>
+        <div class="q-tags"><span class="tag-pill topic">Arrays</span><span class="tag-pill freq-high">🔥 Very High Freq</span></div>
+      </div>
+      <div class="q-badge badge-easy">EASY</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">09</div>
+      <div class="q-content">
+        <div class="q-title">Valid Parentheses / Balanced Brackets</div>
+        <div class="q-desc">Use a stack to check if opening and closing brackets are properly matched.</div>
+        <div class="q-tags"><span class="tag-pill topic">Stack</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-easy">EASY</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">10</div>
+      <div class="q-content">
+        <div class="q-title">Fibonacci Series (Iterative & Recursive)</div>
+        <div class="q-desc">Generate N Fibonacci numbers. Both iterative and recursive approach should be known.</div>
+        <div class="q-tags"><span class="tag-pill topic">Recursion</span><span class="tag-pill freq-med">Medium Freq</span></div>
+      </div>
+      <div class="q-badge badge-easy">EASY</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">11</div>
+      <div class="q-content">
+        <div class="q-title">Largest Number from Array Elements</div>
+        <div class="q-desc">Arrange array elements to form the largest possible number. Custom sort using comparator.</div>
+        <div class="q-tags"><span class="tag-pill topic">Sorting</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-easy">EASY</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">12</div>
+      <div class="q-content">
+        <div class="q-title">Second Largest Element in Array</div>
+        <div class="q-desc">Find second largest without sorting — single/double pass. Handle duplicates.</div>
+        <div class="q-tags"><span class="tag-pill topic">Arrays</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-easy">EASY</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">13</div>
+      <div class="q-content">
+        <div class="q-title">Count Vowels and Consonants in String</div>
+        <div class="q-desc">Traverse string and classify each character. Case-insensitive check required.</div>
+        <div class="q-tags"><span class="tag-pill topic">Strings</span><span class="tag-pill freq-med">Medium Freq</span></div>
+      </div>
+      <div class="q-badge badge-easy">EASY</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">14</div>
+      <div class="q-content">
+        <div class="q-title">Rotate Array by K Positions</div>
+        <div class="q-desc">Left or right rotate array by K steps. Efficient approach: reverse algorithm O(n).</div>
+        <div class="q-tags"><span class="tag-pill topic">Arrays</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-easy">EASY</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">15</div>
+      <div class="q-content">
+        <div class="q-title">Binary Search</div>
+        <div class="q-desc">Find element in sorted array. Find first/last occurrence — most asked variant.</div>
+        <div class="q-tags"><span class="tag-pill topic">Searching</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-easy">EASY</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">16</div>
+      <div class="q-content">
+        <div class="q-title">nCr Calculation (Permutation & Combination)</div>
+        <div class="q-desc">Calculate nCr modulo m. Real Infosys SP question from past papers. Use factorial with modular inverse.</div>
+        <div class="q-tags"><span class="tag-pill topic">Math</span><span class="tag-pill freq-high">🔥 Very High Freq</span></div>
+      </div>
+      <div class="q-badge badge-easy">EASY</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">17</div>
+      <div class="q-content">
+        <div class="q-title">Two Sum Problem</div>
+        <div class="q-desc">Find two numbers in array that add up to target. HashMap O(n) approach is key.</div>
+        <div class="q-tags"><span class="tag-pill topic">Arrays</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-easy">EASY</div>
+    </div>
+  </div>
+
+  <!-- MEDIUM SECTION -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-dot" style="background:var(--yellow);box-shadow:0 0 8px var(--yellow)"></div>
+      <div class="section-title" style="color:var(--yellow)">MEDIUM — Greedy, Sliding Window & Recursion</div>
+      <div class="section-count">Q18–Q35</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">18</div>
+      <div class="q-content">
+        <div class="q-title">Maximum Vacation Days (Andy's Vacation)</div>
+        <div class="q-desc">Given N days and M obligation days, find max consecutive free days (K cancellations allowed). Sliding window technique. Real Infosys SP question.</div>
+        <div class="q-tags"><span class="tag-pill topic">Sliding Window</span><span class="tag-pill freq-high">🔥 Very High Freq</span></div>
+      </div>
+      <div class="q-badge badge-medium">MEDIUM</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">19</div>
+      <div class="q-content">
+        <div class="q-title">Minimum Coins Required (Coin Change)</div>
+        <div class="q-desc">Find minimum coins to make amount V. Greedy for certain coin sets, DP for general case. Real Infosys GitHub question.</div>
+        <div class="q-tags"><span class="tag-pill topic">Greedy / DP</span><span class="tag-pill freq-high">🔥 Very High Freq</span></div>
+      </div>
+      <div class="q-badge badge-medium">MEDIUM</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">20</div>
+      <div class="q-content">
+        <div class="q-title">Activity Selection / Assign Cookies</div>
+        <div class="q-desc">Select maximum non-overlapping activities. Classic greedy — sort by end time and greedily pick.</div>
+        <div class="q-tags"><span class="tag-pill topic">Greedy</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-medium">MEDIUM</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">21</div>
+      <div class="q-content">
+        <div class="q-title">Minimum Platforms Required</div>
+        <div class="q-desc">Given train arrival/departure times, find minimum platforms needed. Sort + two pointer. Real Infosys GitHub question.</div>
+        <div class="q-tags"><span class="tag-pill topic">Greedy</span><span class="tag-pill freq-high">🔥 Very High Freq</span></div>
+      </div>
+      <div class="q-badge badge-medium">MEDIUM</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">22</div>
+      <div class="q-content">
+        <div class="q-title">Maximum Subarray Sum (Kadane's Algorithm)</div>
+        <div class="q-desc">Find contiguous subarray with maximum sum. Kadane's O(n) is must-know. Also asked with negative numbers.</div>
+        <div class="q-tags"><span class="tag-pill topic">Arrays</span><span class="tag-pill freq-high">🔥 Very High Freq</span></div>
+      </div>
+      <div class="q-badge badge-medium">MEDIUM</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">23</div>
+      <div class="q-content">
+        <div class="q-title">Binary String to Decimal Conversion</div>
+        <div class="q-desc">Convert a binary string to its decimal equivalent. Understand base conversion logic deeply — forms basis for harder questions.</div>
+        <div class="q-tags"><span class="tag-pill topic">Number Theory</span><span class="q-tags freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-medium">MEDIUM</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">24</div>
+      <div class="q-content">
+        <div class="q-title">Count Divisible Subarrays</div>
+        <div class="q-desc">Count subarrays whose sum is divisible by K. Prefix sum + modulo hashing approach.</div>
+        <div class="q-tags"><span class="tag-pill topic">Prefix Sum</span><span class="tag-pill freq-med">Medium Freq</span></div>
+      </div>
+      <div class="q-badge badge-medium">MEDIUM</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">25</div>
+      <div class="q-content">
+        <div class="q-title">XOR of All Subsets / Single Number</div>
+        <div class="q-desc">Find element appearing once when all others appear twice using XOR. Extended to maximize XOR-sum(x). Real Infosys exam question.</div>
+        <div class="q-tags"><span class="tag-pill topic">Bit Manipulation</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-medium">MEDIUM</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">26</div>
+      <div class="q-content">
+        <div class="q-title">Next Greater Element</div>
+        <div class="q-desc">For each element, find next greater element to the right. Monotonic stack approach O(n).</div>
+        <div class="q-tags"><span class="tag-pill topic">Stack</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-medium">MEDIUM</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">27</div>
+      <div class="q-content">
+        <div class="q-title">Minimize Ugliness of Binary String</div>
+        <div class="q-desc">Given coins for swap/flip operations, minimize decimal value of binary string. Greedy with budget constraint. Real Infosys Feb 2022 question.</div>
+        <div class="q-tags"><span class="tag-pill topic">Greedy</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-medium">MEDIUM</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">28</div>
+      <div class="q-content">
+        <div class="q-title">Longest Common Prefix</div>
+        <div class="q-desc">Find longest common prefix string among array of strings. Vertical scanning or divide & conquer.</div>
+        <div class="q-tags"><span class="tag-pill topic">Strings</span><span class="tag-pill freq-med">Medium Freq</span></div>
+      </div>
+      <div class="q-badge badge-medium">MEDIUM</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">29</div>
+      <div class="q-content">
+        <div class="q-title">Merge Overlapping Intervals</div>
+        <div class="q-desc">Sort intervals by start time, merge all overlapping ones. O(n log n).</div>
+        <div class="q-tags"><span class="tag-pill topic">Sorting</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-medium">MEDIUM</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">30</div>
+      <div class="q-content">
+        <div class="q-title">Wine Bottle Transport (Minimum Work)</div>
+        <div class="q-desc">Houses have supply/demand for wine. Find minimum transport work. Prefix sum greedy. Real Infosys GitHub question.</div>
+        <div class="q-tags"><span class="tag-pill topic">Greedy</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-medium">MEDIUM</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">31</div>
+      <div class="q-content">
+        <div class="q-title">Sort Characters by Frequency</div>
+        <div class="q-desc">Sort string so that characters appear in decreasing order of frequency. Use max-heap or bucket sort.</div>
+        <div class="q-tags"><span class="tag-pill topic">HashMap + Heap</span><span class="tag-pill freq-med">Medium Freq</span></div>
+      </div>
+      <div class="q-badge badge-medium">MEDIUM</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">32</div>
+      <div class="q-content">
+        <div class="q-title">Maximum XOR of Two Numbers</div>
+        <div class="q-desc">Find two numbers in array whose XOR is maximum. Trie-based approach. Real Infosys DSE level question.</div>
+        <div class="q-tags"><span class="tag-pill topic">Bit Manipulation</span><span class="tag-pill freq-med">Medium Freq</span></div>
+      </div>
+      <div class="q-badge badge-medium">MEDIUM</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">33</div>
+      <div class="q-content">
+        <div class="q-title">Remove Digit to Maximize Number</div>
+        <div class="q-desc">Remove exactly one occurrence of given digit so resulting number is maximized. Greedy left-to-right check. Real Infosys DSE question.</div>
+        <div class="q-tags"><span class="tag-pill topic">Greedy</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-medium">MEDIUM</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">34</div>
+      <div class="q-content">
+        <div class="q-title">Subset Sum Check</div>
+        <div class="q-desc">Check if subset with given sum exists. DP table approach. Real Infosys GitHub question.</div>
+        <div class="q-tags"><span class="tag-pill topic">DP</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-medium">MEDIUM</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">35</div>
+      <div class="q-content">
+        <div class="q-title">Count Arrays with Divisibility Condition</div>
+        <div class="q-desc">Count arrays of length K where each element divides the next (1 to N range). DP approach, answer modulo 10000. Real Infosys exam question.</div>
+        <div class="q-tags"><span class="tag-pill topic">DP + Math</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-medium">MEDIUM</div>
+    </div>
+  </div>
+
+  <!-- HARD SECTION -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-dot" style="background:var(--red);box-shadow:0 0 8px var(--red)"></div>
+      <div class="section-title" style="color:var(--red)">HARD — Dynamic Programming & Graphs</div>
+      <div class="section-count">Q36–Q50</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">36</div>
+      <div class="q-content">
+        <div class="q-title">Longest Increasing Subsequence with Bitwise Condition</div>
+        <div class="q-desc">Find LIS where adjacent elements satisfy (A[x] & A[x+1]) * 2 < (A[x] | A[x+1]). Combines LIS + bit manipulation. Real Infosys SP question.</div>
+        <div class="q-tags"><span class="tag-pill topic">DP + Bits</span><span class="tag-pill freq-high">🔥 Very High Freq</span></div>
+      </div>
+      <div class="q-badge badge-hard">HARD</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">37</div>
+      <div class="q-content">
+        <div class="q-title">Monster Defeat — Max Monsters (Greedy+Sort)</div>
+        <div class="q-desc">Defeat max monsters given experience points. Sort by power, greedily pick all you can defeat in order. Real Infosys SP question.</div>
+        <div class="q-tags"><span class="tag-pill topic">Greedy + Sort</span><span class="tag-pill freq-high">🔥 Very High Freq</span></div>
+      </div>
+      <div class="q-badge badge-hard">HARD</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">38</div>
+      <div class="q-content">
+        <div class="q-title">Minimum Base with Identical Digits</div>
+        <div class="q-desc">Find smallest base B such that M in base B has all identical digits. Number theory + base conversion. Real Infosys Sept 2021 question.</div>
+        <div class="q-tags"><span class="tag-pill topic">Number Theory</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-hard">HARD</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">39</div>
+      <div class="q-content">
+        <div class="q-title">Minimum Days for Terrain Road (Bit Manipulation)</div>
+        <div class="q-desc">Transform terrain to strictly downward. On day D, reduce by 2^(D-1) meters. Find minimum days. Binary search + greedy. Real Infosys SP question.</div>
+        <div class="q-tags"><span class="tag-pill topic">Binary Search + Greedy</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-hard">HARD</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">40</div>
+      <div class="q-content">
+        <div class="q-title">Mountain Array — Minimum Changes</div>
+        <div class="q-desc">Convert array to mountain shape (symmetric, difference of 1 between adjacent). Find minimum changes. Real Infosys SP question.</div>
+        <div class="q-tags"><span class="tag-pill topic">DP</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-hard">HARD</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">41</div>
+      <div class="q-content">
+        <div class="q-title">Pack Gifts into K Boxes (Distinct Types DP)</div>
+        <div class="q-desc">Split array into K consecutive subarrays, each box value = distinct elements count. Maximize/minimize total. Real Infosys DSE question.</div>
+        <div class="q-tags"><span class="tag-pill topic">DP</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-hard">HARD</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">42</div>
+      <div class="q-content">
+        <div class="q-title">Longest Common Subsequence (LCS)</div>
+        <div class="q-desc">Classic DP — find length of LCS between two strings. Foundation for many Infosys SP hard problems.</div>
+        <div class="q-tags"><span class="tag-pill topic">DP</span><span class="tag-pill freq-high">🔥 Very High Freq</span></div>
+      </div>
+      <div class="q-badge badge-hard">HARD</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">43</div>
+      <div class="q-content">
+        <div class="q-title">0/1 Knapsack Problem</div>
+        <div class="q-desc">Classic DP — maximize value within weight limit. Items cannot be split. 2D DP table approach.</div>
+        <div class="q-tags"><span class="tag-pill topic">DP</span><span class="tag-pill freq-high">🔥 Very High Freq</span></div>
+      </div>
+      <div class="q-badge badge-hard">HARD</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">44</div>
+      <div class="q-content">
+        <div class="q-title">Word Break Problem</div>
+        <div class="q-desc">Check if string can be segmented into words from dictionary. DP or BFS approach.</div>
+        <div class="q-tags"><span class="tag-pill topic">DP</span><span class="tag-pill freq-med">Medium Freq</span></div>
+      </div>
+      <div class="q-badge badge-hard">HARD</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">45</div>
+      <div class="q-content">
+        <div class="q-title">Max XOR-Sum(x) in Range [0,K]</div>
+        <div class="q-desc">Find x in [0,K] that maximizes sum of XOR with all array elements. Bit manipulation + greedy on bits. Real Infosys exam question.</div>
+        <div class="q-tags"><span class="tag-pill topic">Bit Manipulation</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-hard">HARD</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">46</div>
+      <div class="q-content">
+        <div class="q-title">Maximum XOR Subset (at most N/2 elements)</div>
+        <div class="q-desc">Choose at most N/2 elements to maximize XOR. Real Infosys Feb 2022 exam question. Greedy bit-by-bit approach.</div>
+        <div class="q-tags"><span class="tag-pill topic">Bit Manipulation</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-hard">HARD</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">47</div>
+      <div class="q-content">
+        <div class="q-title">Shortest Path in Graph (Dijkstra's Algorithm)</div>
+        <div class="q-desc">Find shortest path from source to all vertices. Priority queue implementation. Common in HackWithInfy Hard round.</div>
+        <div class="q-tags"><span class="tag-pill topic">Graph</span><span class="tag-pill freq-med">Medium Freq</span></div>
+      </div>
+      <div class="q-badge badge-hard">HARD</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">48</div>
+      <div class="q-content">
+        <div class="q-title">N-Queens Problem</div>
+        <div class="q-desc">Place N queens on NxN board with no two attacking each other. Classic backtracking. Tests recursion mastery.</div>
+        <div class="q-tags"><span class="tag-pill topic">Backtracking</span><span class="tag-pill freq-med">Medium Freq</span></div>
+      </div>
+      <div class="q-badge badge-hard">HARD</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">49</div>
+      <div class="q-content">
+        <div class="q-title">Combination Sum (Unique Combinations)</div>
+        <div class="q-desc">Find all unique combinations that sum to target. Backtracking with pruning. Important for recursion round.</div>
+        <div class="q-tags"><span class="tag-pill topic">Backtracking</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-hard">HARD</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">50</div>
+      <div class="q-content">
+        <div class="q-title">Edit Distance (Levenshtein Distance)</div>
+        <div class="q-desc">Minimum operations (insert, delete, replace) to convert string A to string B. Classic 2D DP. High difficulty — tests full DP mastery.</div>
+        <div class="q-tags"><span class="tag-pill topic">DP</span><span class="tag-pill freq-high">🔥 High Freq</span></div>
+      </div>
+      <div class="q-badge badge-hard">HARD</div>
+    </div>
+  </div>
+
+  <div class="resources">
+    <h2>Check this resources also</h2>
+  <a href="https://github.com/karthikreddy-7/Infosys-SP-Coding-Questions" target="_blank">
+    Infosys SP Coding Questions - GitHub
+  </a>
+
+  <a href="https://prepinsta.com/infosys-sp-and-dse/coding-questions/" target="_blank">
+    PrepInsta Infosys SP & DSE Coding Questions
+  </a>
+
+  <a href="https://www.linkedin.com/posts/infosys-spdse-50-coding-questions-ugcPost-7399358452784914432-vKME/" target="_blank">
+    LinkedIn Infosys SP/DSE Coding Questions Post
+  </a>
+
+  <a href="https://www.scribd.com/document/916567584/Coding-Sheet-for-Infosys-SP-DSE-Role" target="_blank">
+    Scribd Coding Sheet for Infosys SP/DSE
+  </a>
+
+  <a href="https://www.reddit.com/r/developersIndia/comments/1pmi730/infosys_specialist_programmer_coding_round_for/" target="_blank">
+    Reddit Discussion on Infosys SP Coding Round
+  </a>
+</div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>Curated from <strong>GitHub</strong>, <strong>PrepInsta</strong>, <strong>HackWithInfy</strong>, <strong>Reddit</strong>, <strong>Studocu</strong> & real exam experiences.<br>
+    Practice on <strong>LeetCode</strong> · <strong>HackerRank</strong> · <strong>GeeksforGeeks</strong> for best results.</p>
+    <p style="margin-top:12px;font-size:11px;color:#3a3a5a;">Made with ❤️ for Infosys SP & DSE aspirants by <a href="https://www.instagram.com/codingkashtalu">Coding Kashtalu</a> </p>
+  </div>
+
+</div>
+</body>
+</html>
